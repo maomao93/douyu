@@ -52,7 +52,7 @@ export default {
 	}
 	.layout-header input{
 		float: left;
-	    width: 2.6rem;
+	    width: 80%;
 	    height: 0.23594rem;
 	    outline: none;
 	    border: none;
@@ -66,14 +66,14 @@ export default {
 		word-spacing:normal;
 		letter-spacing: normal;
 		float: left;
-	    width: 0.51188rem;
+	    width: 17%;
 	    line-height: .25rem;
 	    padding: 0;
 	    border: none;
 	    margin-top: 0.05973rem;
 	    text-align: center;
 	    outline: none;
-	    font-size: 0.12rem;
+	    font-size: 0.14rem;
 	    color: #333;
 	    background-color: transparent;
 	}

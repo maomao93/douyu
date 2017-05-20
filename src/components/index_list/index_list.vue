@@ -35,8 +35,15 @@ export default {
 </script>
 	
 <style scoped>
+	html body {
+	    font-family: "Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+	    color: #333;
+	    background-color: #eee;
+	    height: 100%;
+	    width: 100%;
+	}
 	a{text-decoration: none;color: #333;}
-	.hotroom{width: 100%;border-top: 0.1rem solid #eee;}
+	.hotroom{width: 100%;background: #fff;margin-top: 0.1rem}
 	.names{font-size: 0.14rem;display: flex;align-content: center;justify-content: space-between;height: 0.34rem;line-height:0.34rem;padding:0 0.15rem;}
 	.all_name{display: flex;align-content: center;}
 	.roomlist{width: 100%;overflow: auto;padding:0 0.05rem;box-sizing: border-box;}

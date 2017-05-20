@@ -1,8 +1,6 @@
-<style>
 
-</style>
 <template>
-	<div>
+	<div class="ovflows">
 		<div class="header">
 			<!-- <i class="iconfont icon-fanhui huitui"></i> -->
 			<div class="header-r">
@@ -11,21 +9,19 @@
 						搜索
 					</span>
 				</router-link>
-				<router-link to="">
-					<span class="iconfont icon-fenlei fenlei" @click="greet(inActive)">分类</span>
-				</router-link>
+				<span class="iconfont icon-fenlei fenlei" @click="greet(inActive)">分类</span>
 			</div>
 		</div>
 		<div class="tablist" v-show="inActive">
 			<ul class="landscape">
-				<li class="tablistall item_cur">全部<b></b></li>
-				<li class="tablistall" v-for= 'nav in navs' :data-cateid = "nav.cate1Id">
+				<li class="tablistall" v-for= '(nav,index) in navs' :data-cateid="nav.cate1Id"
+				:class="{ item_cur:nav.isActive}" @click="tablist(nav,nav.cate1Id)">
 					{{nav.cate1Name}}
 					<b></b>
 				</li>
 			</ul>
 			<ul class="longitudinal">
-				<li v-for='item in items'>
+				<li v-for='item in items1' :data-cateid="item.cate1Id">
 					<div class="nav-item">
 						<img :src="item.icon" v-lazy="item.icon" alt=""><br/>
 						{{item.cate2Name}}
@@ -43,19 +39,47 @@ export default {
 	data () {
 		return {
 			navs : '',
-			items : '',
-			inActive:false
+			items : '',//存放原始值
+			items1:'',//存放变量值
+			inActive:false,
 		}
 	},
 	methods : {
 		greet: function (event) {
 		 	this.inActive=!this.inActive;
 		 	axios.get('/static/classification.json').then(res=>{
-		 		//console.log(res.data.cate1Info)
-		  		this.navs = res.data.cate1Info
-		  		this.items = res.data.cate2Info
-	  		})
-    	}
+		 		let all = [{
+		 			"cate1Id": "0",
+		 			"cate1Name":"全部",
+		 			"shortName": "all"
+		 		}];
+		 		this.navs =all.concat(res.data.cate1Info);
+		 		this.navs[0].isActive=true;
+		 		for (let i=1;i< this.navs.length;i++){
+		 			this.$set(this.navs[i],"isActive",false);
+		 		}
+		  		this.items = res.data.cate2Info;
+		  		this.items1 = res.data.cate2Info;
+	  		});
+    	},
+	 	tablist:function(event,mol){
+	 		for (let i=0;i< this.navs.length;i++){
+	 			this.$set(this.navs[i],"isActive",false);
+	 		}
+	 		event.isActive = true;
+	 		let items = this.items;
+	 		let items1 = [];
+	 		if(mol==0){
+	 			items1=items
+	 		};
+	 		for(let j=0;j<items.length;j++){
+	 			if(items[j].cate1Id==mol){
+	 				items1.push(items[j])
+	 			}
+	 			//console.log('*'+this.items[j].cate1Id)
+	 		}
+	 		this.items1 = items1
+	 	}
 	}
 }
 </script>

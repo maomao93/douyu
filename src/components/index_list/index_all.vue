@@ -1,26 +1,23 @@
 <template>
   	<div>
   		<v-header></v-header> 
-  		<div class="hotroom">
-  			<v-scroll :on-refresh="onRefresh" :on-infinite="onInfinite">
-  				<div class="names">全部</div>
-	  			<ul class="roomlist">
-		  			<li v-for="(item,index) in listdata">
-		  				<router-link to="/index1">
-			  				<span><img  v-lazy="item.room_src" :src="item.room_src" alt=""></span>
-			  				<p>{{item.room_name}}</p>
-		  				</router-link>
-		  			</li>
-		  			<li v-for="(item,index) in downdata">
-		  				<router-link to="/index1">
-			  				<span><img :src="item.room_src" v-lazy="item.room_src" alt=""></span>
-			  				<p>{{item.room_name}}</p>
-		  				</router-link>
-		  			</li>
-	  			</ul>
-		 	</v-scroll>
-  		</div>
-  		
+		<v-scroll :on-refresh="onRefresh" :on-infinite="onInfinite">
+				<div class="names">全部</div>
+  			<ul class="roomlist">
+	  			<li v-for="(item,index) in listdata">
+	  				<router-link to="/index1">
+		  				<span><img  v-lazy="item.room_src" :src="item.room_src" alt=""></span>
+		  				<p>{{item.room_name}}</p>
+	  				</router-link>
+	  			</li>
+	  			<li v-for="(item,index) in downdata">
+	  				<router-link to="/index1">
+		  				<span><img :src="item.room_src" v-lazy="item.room_src" alt=""></span>
+		  				<p>{{item.room_name}}</p>
+	  				</router-link>
+	  			</li>
+  			</ul>
+	 	</v-scroll>
   	</div>
 </template>
 
@@ -90,8 +87,7 @@ export default {
 	
 
 <style scoped>
-	.hotroom{width: 100%;margin:0.15rem 0;}
-	.names{font-size: 0.12rem;display: flex;align-content: center;height: 0.24rem;padding-left: 0.15rem}
+	.names{font-size: 0.12rem;display: flex;align-content: center;height: 0.24rem;line-height: 0.24rem;padding-left: 0.15rem}
 	.roomlist{width: 100%;overflow: auto;padding:0 0.05rem;box-sizing: border-box;}
 	.roomlist li{width: 50%;float: left;padding:0 0 0.02rem 0.02rem;    display: inline-block;box-sizing: border-box;font-size: 0;}
 	.roomlist li>a{text-decoration: none}

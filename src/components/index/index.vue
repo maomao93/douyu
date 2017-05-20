@@ -3,10 +3,10 @@
 		<v-header></v-header> 
 		<div class="layout-banner">
 			<swiper :options="swiperOption" ref="mySwiper">
-				    <swiper-slide><a href=""><img src="https://staticlive.douyucdn.cn/upload/signs/201705121529575675.jpg" alt=""></a></swiper-slide>
-				    <swiper-slide><a href=""><img src="https://staticlive.douyucdn.cn/upload/signs/201705161426379397.jpg" alt=""></a></swiper-slide>
-				    <swiper-slide><a href=""><img src="https://staticlive.douyucdn.cn/upload/signs/201705021508577109.jpg" alt=""></a></swiper-slide>
-				    <swiper-slide><a href=""><img src="https://staticlive.douyucdn.cn/upload/signs/201705091639371336.png" alt=""></a></swiper-slide>
+				    <swiper-slide><a href="#"><img src="https://staticlive.douyucdn.cn/upload/signs/201705121529575675.jpg" alt=""></a></swiper-slide>
+				    <swiper-slide><a href="#"><img src="https://staticlive.douyucdn.cn/upload/signs/201705161426379397.jpg" alt=""></a></swiper-slide>
+				    <swiper-slide><a href="#"><img src="https://staticlive.douyucdn.cn/upload/signs/201705021508577109.jpg" alt=""></a></swiper-slide>
+				    <swiper-slide><a href="#"><img src="https://staticlive.douyucdn.cn/upload/signs/201705091639371336.png" alt=""></a></swiper-slide>
 				    <div class="swiper-pagination swiper-bottom"  slot="pagination"></div>
 			  </swiper>
 		</div>
